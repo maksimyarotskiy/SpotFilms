@@ -1,8 +1,7 @@
 from django.urls import path
-from . import views
+from .views import *
 
 urlpatterns = [
-    path('', views.welcome, name='welcome'),
+    #    path('', views.welcome, name='welcome'),
+    path('', MovieList.as_view(), name='movie-list'),
 ]
-
-# Здесь будешь писать свой listview
