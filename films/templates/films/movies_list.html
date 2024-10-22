@@ -1,74 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movies</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            margin: 0;
-            padding: 20px;
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        .movie-list {
-            max-width: 800px;
-            margin: 0 auto;
-            list-style-type: none;
-            padding: 0;
-        }
-        .movie-item {
-            background-color: #fff;
-            margin-bottom: 20px;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .movie-item h2 {
-            margin: 0 0 10px;
-            color: #007BFF;
-        }
-        .movie-item p {
-            margin: 5px 0;
-        }
-        .location {
-            font-style: italic;
-            color: #666;
-        }
-    </style>
-</head>
-<body>
-    <h1>Movies List</h1>
+{% extends 'films/base.html' %}
+{% load static %}
+{% block title %}Список фильмов{% endblock %}
 
-    <ul class="movie-list">
+{% block content %}
+<section class="movies-list">
+    <h2>Популярное сейчас</h2>
+    <div class="movies-grid">
         {% for movie in movies %}
-        <li class="movie-item">
-            <h2>{{ movie.title }} ({{ movie.release_year }})</h2>
-            <p>{{ movie.description }}</p>
-            <p class="location">Location: {{ movie.location.city }}, {{ movie.location.country }}</p>
-        </li>
-        {% empty %}
-        <li>
-            <p>No movies available at the moment.</p>
-        </li>
-        {% endfor %}
-    </ul>
+        <div class="movie-card">
+            {% if movie.poster %}
+            <img src="{{ movie.poster.url }}" alt="{{ movie.title }} Poster" class="movie-poster">
+            {% else %}
+            <img src="{% static 'images/default-movie-poster.jpg' %}" alt="Default Poster" class="movie-poster">
+            {% endif %}
+            <div class="movie-info">
+                <h3>{{ movie.title }}</h3>
+                <p>{{ movie.release_year }}</p>
+                <p>{{ movie.description|truncatewords:20 }}</p>
 
-    <!-- Пагинация (если включена) -->
-    <div>
-        <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
-        <div>
-            {% if page_obj.has_previous %}
-                <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
-            {% endif %}
-            {% if page_obj.has_next %}
-                <a href="?page={{ page_obj.next_page_number }}">Next</a>
-            {% endif %}
+                <!-- Отображение изображения локации -->
+                {% if movie.location.image %}
+                <img src="{{ movie.location.image.url }}" alt="{{ movie.location }}" class="location-image">
+                {% else %}
+                <img src="{% static 'images/default-location-image.jpg' %}" alt="Default Location" class="location-image">
+                {% endif %}
+
+                <p>Местоположение: {{ movie.location }}</p>
+                <a href="#" class="more-info">Подробнее</a>
+            </div>
         </div>
+        {% endfor %}
     </div>
-</body>
-</html>
+
+    <!-- Пагинация -->
+    <div class="pagination">
+        {% if is_paginated %}
+            <div class="page-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}">Предыдущая</a>
+                {% endif %}
+
+                <span>Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}</span>
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">Следующая</a>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

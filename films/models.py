@@ -4,6 +4,7 @@ from django.db import models
 class Location(models.Model):
     country = models.CharField(max_length=100)
     city = models.CharField(max_length=100, blank=True, null=True)
+    image = models.ImageField(upload_to='locations/', blank=True, null=True)
 
     def __str__(self):
         return f"{self.city}, {self.country}" if self.city else self.country
@@ -14,6 +15,7 @@ class Movie(models.Model):
     release_year = models.IntegerField()
     description = models.TextField()
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
+    poster = models.ImageField(upload_to='posters/', blank=True, null=True)
 
     def __str__(self):
         return self.title
