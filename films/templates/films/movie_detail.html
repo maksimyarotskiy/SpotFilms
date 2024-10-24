@@ -1,5 +1,13 @@
-{% extends 'films/base.html' %} {% load static %} {% block title %}{{
-movie.title }}{% endblock %} {% block content %}
+{% extends 'films/base.html' %}
+{% load static %}
+
+
+{% block title %}
+{{ movie.title }}
+{% endblock %}
+
+
+{% block content %}
 <section class="movie-detail">
   <div class="movie-info">
     <h1>{{ movie.title }}</h1>
@@ -20,7 +28,7 @@ movie.title }}{% endblock %} {% block content %}
     {% endif %}
 
     <!-- Основная информация о фильме -->
-    <p><strong>Год выпуска:</strong> {{ movie.release_date|date:"Y" }}</p>
+    <p><strong>Год выпуска:</strong> {{ movie.release_year }}</p>
     <p><strong>Описание:</strong> {{ movie.description }}</p>
 
     <!-- Локация фильма, если есть -->
@@ -37,7 +45,7 @@ movie.title }}{% endblock %} {% block content %}
     <p>Местоположение: Не указано</p>
     {% endif %}
 
-    <a href="{% url 'movies-list' %}" class="back-to-list"
+    <a href="{% url 'movie-list' %}" class="back-to-list"
       >Вернуться к списку фильмов</a
     >
   </div>
