@@ -1,0 +1,45 @@
+{% extends 'films/base.html' %} {% load static %} {% block title %}{{
+movie.title }}{% endblock %} {% block content %}
+<section class="movie-detail">
+  <div class="movie-info">
+    <h1>{{ movie.title }}</h1>
+
+    <!-- Отображение постера фильма -->
+    {% if movie.poster %}
+    <img
+      src="{{ movie.poster.url }}"
+      alt="{{ movie.title }} Poster"
+      class="movie-poster-large"
+    />
+    {% else %}
+    <img
+      src="{% static 'images/default-movie-poster.jpg' %}"
+      alt="Default Poster"
+      class="movie-poster-large"
+    />
+    {% endif %}
+
+    <!-- Основная информация о фильме -->
+    <p><strong>Год выпуска:</strong> {{ movie.release_date|date:"Y" }}</p>
+    <p><strong>Описание:</strong> {{ movie.description }}</p>
+
+    <!-- Локация фильма, если есть -->
+    {% if movie.location and movie.location.image %}
+    <div class="movie-location">
+      <img
+        src="{{ movie.location.image.url }}"
+        alt="{{ movie.location }}"
+        class="location-image-large"
+      />
+      <p>Местоположение: {{ movie.location }}</p>
+    </div>
+    {% else %}
+    <p>Местоположение: Не указано</p>
+    {% endif %}
+
+    <a href="{% url 'movies-list' %}" class="back-to-list"
+      >Вернуться к списку фильмов</a
+    >
+  </div>
+</section>
+{% endblock %}
