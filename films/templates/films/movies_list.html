@@ -1,52 +1,68 @@
-{% extends 'films/base.html' %}
-{% load static %}
-{% block title %}Список фильмов{% endblock %}
-
-{% block content %}
+{% extends 'films/base.html' %} {% load static %} {% block title %}Список
+фильмов{% endblock %} {% block content %}
 <section class="movies-list">
-    <h2>Популярное сейчас</h2>
-    <div class="movies-grid">
-        {% for movie in movies %}
-        <div class="movie-card">
-            {% if movie.poster %}
-            <img src="{{ movie.poster.url }}" alt="{{ movie.title }} Poster" class="movie-poster">
-            {% else %}
-            <img src="{% static 'images/default-movie-poster.jpg' %}" alt="Default Poster" class="movie-poster">
-            {% endif %}
-            <div class="movie-info">
-                <h3>{{ movie.title }}</h3>
-                <p>{{ movie.release_year }}</p>
-                <p>{{ movie.description|truncatewords:20 }}</p>
+  <h2>Популярное сейчас</h2>
+  <div class="movies-grid">
+    {% for movie in movies %}
+    <div class="movie-card">
+      {% if movie.poster %}
+      <img
+        src="{{ movie.poster.url }}"
+        alt="{{ movie.title }} Poster"
+        class="movie-poster"
+      />
+      {% else %}
+      <img
+        src="{% static 'images/default-movie-poster.jpg' %}"
+        alt="Default Poster"
+        class="movie-poster"
+      />
+      {% endif %}
+      <div class="movie-info">
+        <h3>{{ movie.title }}</h3>
+        <p>{{ movie.release_year }}</p>
+        <p>{{ movie.description|truncatewords:20 }}</p>
 
-                <!-- Отображение изображения локации -->
-                {% if movie.location.image %}
-                <img src="{{ movie.location.image.url }}" alt="{{ movie.location }}" class="location-image">
-                {% else %}
-                <img src="{% static 'images/default-location-image.jpg' %}" alt="Default Location" class="location-image">
-                {% endif %}
-
-                <p>Местоположение: {{ movie.location }}</p>
-                <a href="#" class="more-info">Подробнее</a>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
-
-    <!-- Пагинация -->
-    <div class="pagination">
-        {% if is_paginated %}
-            <div class="page-links">
-                {% if page_obj.has_previous %}
-                    <a href="?page={{ page_obj.previous_page_number }}">Предыдущая</a>
-                {% endif %}
-
-                <span>Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}</span>
-
-                {% if page_obj.has_next %}
-                    <a href="?page={{ page_obj.next_page_number }}">Следующая</a>
-                {% endif %}
-            </div>
+        <!-- Отображение изображения локации -->
+        {% if movie.location.image %}
+        <img
+          src="{{ movie.location.image.url }}"
+          alt="{{ movie.location }}"
+          class="location-image"
+        />
+        {% else %}
+        <img
+          src="{% static 'images/default-location-image.jpg' %}"
+          alt="Default Location"
+          class="location-image"
+        />
         {% endif %}
+
+        <p>Местоположение: {{ movie.location }}</p>
+        <a href="/movies/1" class="more-info">Подробнее</a>
+      </div>
     </div>
+    {% endfor %}
+  </div>
+
+  <!-- Пагинация -->
+  <div class="pagination">
+    {% if is_paginated %}
+    <div class="page-links">
+      {% if page_obj.has_previous %}
+      <a href="?page={{ page_obj.previous_page_number }}">Предыдущая</a>
+      {% endif %}
+
+      <span
+        >Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages
+        }}</span
+      >
+
+      {% if page_obj.has_next %}
+      <a href="?page={{ page_obj.next_page_number }}">Следующая</a>
+      {% endif %}
+    </div>
+    {% endif %}
+  </div>
 </section>
 {% endblock %}

@@ -1,0 +1,81 @@
+/* Основные стили для страницы деталей фильма */
+.movie-detail {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background-color: #333; /* Темный фон */
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Более глубокая тень */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #1a1a1a; /* Темный фон */
+  color: #f0f0f0; /* Светлый цвет текста */
+}
+
+.movie-info h1 {
+  text-align: center;
+  color: #ffffff; /* Цвет заголовка */
+  margin-bottom: 20px;
+}
+
+.movie-poster,
+.location-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 15px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3); /* Увеличенная тень */
+}
+
+.movie-info p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #f0f0f0; /* Светлый цвет текста */
+  margin: 10px 0;
+}
+
+.back-to-list {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+  color: #1a1a1a; /* Темный текст */
+  background-color: #ffcc00; /* Цвет фона кнопки */
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.back-to-list:hover {
+  background-color: #e6b800; /* Цвет при наведении */
+  color: #ffffff; /* Светлый текст при наведении */
+}
+
+/* Центрирование контейнера с изображением */
+.movie-location {
+  text-align: center;
+}
+
+.movie-location img.location-image {
+  margin-top: 10px;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+  .movie-detail {
+    padding: 15px;
+  }
+
+  .movie-info h1 {
+    font-size: 22px;
+  }
+
+  .back-to-list {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
