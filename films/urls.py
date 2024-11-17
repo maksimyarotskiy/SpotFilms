@@ -8,4 +8,5 @@ urlpatterns = [
     #    path('', views.welcome, name='welcome'),
     path('movies/', MovieList.as_view(), name='movie-list'),
     path('movies/<int:pk>/', MovieDetailView.as_view(), name='movie-detail'),
+    path("tickets/", TicketsListView.as_view(), name="tickets-list"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

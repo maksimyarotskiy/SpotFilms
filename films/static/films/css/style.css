@@ -175,3 +175,31 @@ body {
 .copyright {
     margin-top: 10px; /* Отступ сверху */
 }
+
+.flight-form {
+  display: flex;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.flight-form input {
+  padding: 5px 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.flight-form button {
+  padding: 5px 15px;
+  font-size: 14px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.flight-form button:hover {
+  background-color: #0056b3;
+}
+

@@ -4,12 +4,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{% block title %}Мой сайт{% endblock %}</title>
+    <title>{% block title %}SpotFilms{% endblock %}</title>
     <link
       rel="stylesheet"
       type="text/css"
       href="{% static 'films/css/style.css' %}"
     />
+      {% block extra_styles %}{% endblock %}
   </head>
   <body>
     <!-- Навигационная панель -->
@@ -24,6 +25,22 @@
           <li><a href="#">Контакты</a></li>
         </ul>
       </nav>
+      <!-- Форма выбора города вылета -->
+      <form class="flight-form" method="get" action="{% url 'tickets-list' %}">
+        <input
+          type="text"
+          name="origin"
+          placeholder="Город вылета (код, напр. MOW)"
+          value="{{ request.GET.origin|default:'MOW' }}"
+        />
+        <input
+          type="text"
+          name="destination"
+          placeholder="Город назначения (код, напр. NYC)"
+          value="{{ request.GET.destination|default:'' }}"
+        />
+        <button type="submit">Найти билеты</button>
+      </form>
     </header>
 
     <!-- Основной контент -->

@@ -1,0 +1,30 @@
+{% extends "films/base.html" %}
+{% load static %}
+
+{% block title %}Билеты{% endblock %}
+
+{% block extra_styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'films/css/tickets.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h2>Билеты из {{ origin }} в {{ destination }}</h2>
+
+    {% if tickets %}
+        <div class="tickets">
+            {% for ticket in tickets %}
+                <div class="ticket">
+                    <p><strong>Цена:</strong> {{ ticket.value }} $</p>
+                    <p><strong>Пересадки:</strong> {{ ticket.number_of_changes }}</p>
+                    <p><strong>Расстояние:</strong> {{ ticket.distance }}</p>
+                    <p><strong>Длительность:</strong> {{ ticket.duration }}</p>
+                    <p><strong>Дата вылета:</strong> {{ ticket.depart_date }}</p>
+                    <p><strong>Дата возврата:</strong> {{ ticket.return_date }}</p>
+                    <p><strong>Ссылка:(ее нет)</strong> <a href="{{ ticket.link }}" target="_blank">Купить билет</a></p>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>Билеты не найдены или произошла ошибка при получении данных.</p>
+    {% endif %}
+{% endblock %}
