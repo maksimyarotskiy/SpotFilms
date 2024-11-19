@@ -28,13 +28,40 @@ class TicketsListView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        origin = self.request.GET.get("origin", "MOW")  # Код вылета (по умолчанию Москва)
+        # Получение параметров из GET-запроса
+        origin = self.request.GET.get("origin", "MOW")  # Код вылета
         destination = self.request.GET.get("destination", "DXB")  # Код назначения
+        currency = self.request.GET.get("currency", "rub")  # Валюта
+        sorting = self.request.GET.get("sorting", "price")  # Сортировка
+        limit = int(self.request.GET.get("limit", 30))  # Лимит
+        page = int(self.request.GET.get("page", 1))  # Страница
+        one_way = self.request.GET.get("one_way", "true").lower() == "true"  # Только в одну сторону
+        direct = self.request.GET.get("direct", "false").lower() == "true"  # Только прямые рейсы
 
-        tickets = get_tickets(origin, destination)
+        # Получение данных о билетах
+        tickets = get_tickets(
+            origin=origin,
+            destination=destination,
+            currency=currency,
+            sorting=sorting,
+            limit=limit,
+            page=page,
+            one_way=one_way,
+            direct=direct,
+        )
 
-        context["tickets"] = tickets
-        context["origin"] = origin
-        context["destination"] = destination
+        # Передача данных в контекст
+        context.update({
+            "tickets": tickets,
+            "origin": origin,
+            "destination": destination,
+            "currency": currency,
+            "sorting": sorting,
+            "limit": limit,
+            "page": page,
+            "one_way": one_way,
+            "direct": direct,
+            "error": not tickets,
+        })
 
         return context
