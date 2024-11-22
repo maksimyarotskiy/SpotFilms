@@ -28,19 +28,20 @@
       <!-- Форма выбора города вылета -->
       <form class="flight-form" method="get" action="{% url 'tickets-list' %}">
         <input
-          type="text"
-          name="origin"
-          placeholder="Город вылета (код, напр. MOW)"
-          value="{{ request.GET.origin|default:'MOW' }}"
+                type="text"
+                name="origin"
+                placeholder="Город вылета (например, Москва)"
+                value="{{ request.GET.origin|default:'Москва' }}"
         />
         <input
-          type="text"
-          name="destination"
-          placeholder="Город назначения (код, напр. NYC)"
-          value="{{ request.GET.destination|default:'' }}"
+                type="text"
+                name="destination"
+                placeholder="Город назначения (например, Дубай)"
+                value="{{ request.GET.destination|default:'' }}"
         />
         <button type="submit">Найти билеты</button>
       </form>
+
     </header>
 
     <!-- Основной контент -->

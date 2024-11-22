@@ -7,9 +7,12 @@
     <list default="true" id="bf1aa814-ff1d-4b83-8248-886ff4ba527d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/films/services/aviasales.py" beforeDir="false" afterPath="$PROJECT_DIR$/films/services/aviasales.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/films/static/films/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/films/static/films/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/films/static/films/css/tickets.css" beforeDir="false" afterPath="$PROJECT_DIR$/films/static/films/css/tickets.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/films/static/films/css/movie_detail.css" beforeDir="false" afterPath="$PROJECT_DIR$/films/static/films/css/movie_detail.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/films/templates/films/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/films/templates/films/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/films/templates/films/movie_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/films/templates/films/movie_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/films/templates/films/movies_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/films/templates/films/movies_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/films/templates/films/tickets_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/films/templates/films/tickets_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/films/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/films/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/films/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/films/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

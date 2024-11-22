@@ -79,3 +79,57 @@ body {
     font-size: 14px;
   }
 }
+
+/* Центрирование контейнера формы на странице */
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 40vh; /* Высота экрана для центрирования */
+  background-color: #333; /* Темный фон для всей страницы */
+  margin: 0 25%;; /* Убираем отступы */
+}
+
+/* Стили для формы */
+#city-selection-form {
+  padding: 20px;
+  background-color: #444; /* Тёмный фон формы */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* Центрируем все элементы формы по горизонтали */
+  gap: 15px;
+  max-width: 400px;
+  width: 100%; /* Форму можно растягивать до максимальной ширины */
+  color: #fff; /* Белый текст для формы */
+  text-align: center;  /* Центрируем текст в форме */
+}
+
+/* Стили для полей формы */
+#city-selection-form select,
+#city-selection-form button {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #666;
+  width: 100%; /* Чтобы поля растягивались на всю ширину формы */
+  max-width: 350px; /* Ограничение максимальной ширины */
+  box-sizing: border-box;
+}
+
+/* Стили для кнопки */
+#city-selection-form button {
+  background-color: #DAF7A6; /* Зеленая кнопка */
+  color: #333;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Стили для кнопки при наведении */
+#city-selection-form button:hover {
+  background-color: #ff5733; /* Цвет при наведении */
+}
+
+

@@ -1,16 +1,13 @@
+{% extends 'films/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{% block title %}Детальная информация{% endblock %}</title>
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{% static 'films/css/movie_detail.css' %}"
-    />
-  </head>
+
+
+{% block title %}Детальная информация{% endblock %}
+
+{% block extra_styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'films/css/movie_detail.css' %}">
+{% endblock %}
+
   <body>
     {% block content %}
     <section class="movie-detail">
@@ -49,6 +46,35 @@
         {% else %}
         <p>Местоположение: Не указано</p>
         {% endif %}
+
+<div class="center-container">
+  <form id="city-selection-form" class="flight-form">
+    <label for="origin">Выберите город вылета:</label>
+    <select id="origin" name="origin">
+        <option value="Москва">Москва</option>
+        <option value="Санкт-Петербург">Санкт-Петербург</option>
+        <option value="Екатеринбург">Екатеринбург</option>
+        <option value="Новосибирск">Новосибирск</option>
+        <option value="Казань">Казань</option>
+        <option value="Краснодар">Краснодар</option>
+        <option value="Владивосток">Владивосток</option>
+        <option value="Уфа">Уфа</option>
+        <option value="Калининград">Калининград</option>
+        <option value="Самара">Самара</option>
+        <option value="Ростов-на-Дону">Ростов-на-Дону</option>
+        <option value="Воронеж">Воронеж</option>
+    </select>
+
+    <label for="destination">Город назначения:</label>
+    <select id="destination" name="destination">
+      <option value="{{ movie.location.city }}">{{ movie.location.city }}</option>
+    </select>
+
+    <button type="submit">Найти билеты</button>
+  </form>
+</div>
+
+
 
         <a href="{% url 'movie-list' %}" class="back-to-list"
           >Вернуться к списку фильмов</a

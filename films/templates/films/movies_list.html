@@ -1,5 +1,7 @@
-{% extends 'films/base.html' %} {% load static %} {% block title %}Список
-фильмов{% endblock %} {% block content %}
+{% extends 'films/base.html' %}
+{% load static %}
+{% block title %}Список фильмов{% endblock %}
+{% block content %}
 <section class="movies-list">
   <h2>Популярное сейчас</h2>
   <div class="movies-grid">
@@ -53,10 +55,7 @@
       <a href="?page={{ page_obj.previous_page_number }}">Предыдущая</a>
       {% endif %}
 
-      <span
-        >Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages
-        }}</span
-      >
+      <span>Страница {{ page_obj.number }} из {{ page_obj.paginator.num_page}}</span>
 
       {% if page_obj.has_next %}
       <a href="?page={{ page_obj.next_page_number }}">Следующая</a>
