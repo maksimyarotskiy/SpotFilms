@@ -10,6 +10,10 @@
       type="text/css"
       href="{% static 'films/css/style.css' %}"
     />
+    <link rel="icon" type="image/x-icon" href="{% static 'films/images/favicon.ico' %}">
+    <link rel="icon" type="image/png" href="{% static 'films/images/favicon-32x32.png' %}">
+
+
       {% block extra_styles %}{% endblock %}
   </head>
   <body>
@@ -56,19 +60,17 @@
       <section class="socials">
         <h2>Свяжитесь с нами</h2>
         <div class="social-icons">
+          <a href="#">
+            <img src="{% static 'films/images/instagram.png' %}" alt="Instagram"/>
+          </a>
           <a href="#"
-            ><img
-              src="{% static 'images/instagram-icon.png' %}"
-              alt="Instagram"
+            ><img src="{% static 'films/images/facebook.png' %}" alt="Facebook"
           /></a>
           <a href="#"
-            ><img src="{% static 'images/facebook-icon.png' %}" alt="Facebook"
+            ><img src="{% static 'films/images/telegram.png' %}" alt="Twitter"
           /></a>
           <a href="#"
-            ><img src="{% static 'images/twitter-icon.png' %}" alt="Twitter"
-          /></a>
-          <a href="#"
-            ><img src="{% static 'images/email-icon.png' %}" alt="Email"
+            ><img src="{% static 'films/images/mail.png' %}" alt="Email"
           /></a>
         </div>
       </section>
@@ -95,8 +97,7 @@
       </section>
 
       <section class="copyright">
-        <p>&copy; 2023 FilmsLand. Все права защищены.</p>
-        <p>Создано: Нами</p>
+        <p>&copy; 2024 SpotFilms. Все права защищены.</p>
       </section>
     </footer>
 

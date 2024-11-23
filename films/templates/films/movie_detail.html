@@ -48,7 +48,7 @@
         {% endif %}
 
 <div class="center-container">
-  <form id="city-selection-form" class="flight-form">
+  <form id="city-selection-form" class="flight-form" method="get" action="{% url 'tickets-list' %}">
     <label for="origin">Выберите город вылета:</label>
     <select id="origin" name="origin">
         <option value="Москва">Москва</option>
@@ -66,13 +66,16 @@
     </select>
 
     <label for="destination">Город назначения:</label>
-    <select id="destination" name="destination">
-      <option value="{{ movie.location.city }}">{{ movie.location.city }}</option>
-    </select>
+    <!-- Скрытое поле для города назначения -->
+    <input type="hidden" name="destination" value="{{ movie.location.city }}">
+
+    <!-- Отображение города назначения -->
+    <h2>{{ movie.location.city }}</h2>
 
     <button type="submit">Найти билеты</button>
   </form>
 </div>
+
 
 
 

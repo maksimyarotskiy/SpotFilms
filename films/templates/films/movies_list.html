@@ -41,7 +41,8 @@
         {% endif %}
 
         <p>Местоположение: {{ movie.location }}</p>
-        <a href="/movies/1" class="more-info">Подробнее</a>
+        <a href="{% url 'movie-detail' movie.id %}" class="more-info">Подробнее</a>
+
       </div>
     </div>
     {% endfor %}

@@ -120,7 +120,7 @@ body {
 
 /* Стили для кнопки */
 #city-selection-form button {
-  background-color: #DAF7A6; /* Зеленая кнопка */
+  background-color: #9fcf0e; /* Зеленая кнопка */
   color: #333;
   font-weight: bold;
   cursor: pointer;
@@ -129,7 +129,7 @@ body {
 
 /* Стили для кнопки при наведении */
 #city-selection-form button:hover {
-  background-color: #ff5733; /* Цвет при наведении */
+  background-color: #7a9e0b; /* Цвет при наведении */
 }
 
 

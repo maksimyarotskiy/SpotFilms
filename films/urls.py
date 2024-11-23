@@ -6,7 +6,6 @@ from .views import *
 from django.conf.urls.static import static
 
 urlpatterns = [
-    #    path('', views.welcome, name='welcome'),
     path('', lambda request: redirect('movie-list', permanent=True)),
     path('movies/', MovieList.as_view(), name='movie-list'),
     path('movies/<int:pk>/', MovieDetailView.as_view(), name='movie-detail'),
