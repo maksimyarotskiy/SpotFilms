@@ -1,24 +1,23 @@
-/* Основные стили для страницы деталей фильма */
 .movie-detail {
   max-width: 800px;
   margin: auto;
   padding: 20px;
-  background-color: #333; /* Темный фон */
+  background-color: #333;
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Более глубокая тень */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #1a1a1a; /* Темный фон */
-  color: #f0f0f0; /* Светлый цвет текста */
+  background-color: #1a1a1a;
+  color: #f0f0f0;
 }
 
 .movie-info h1 {
   text-align: center;
-  color: #ffffff; /* Цвет заголовка */
+  color: #ffffff;
   margin-bottom: 20px;
 }
 
@@ -29,13 +28,13 @@ body {
   height: auto;
   margin: 15px auto;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3); /* Увеличенная тень */
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3);
 }
 
 .movie-info p {
   font-size: 16px;
   line-height: 1.5;
-  color: #f0f0f0; /* Светлый цвет текста */
+  color: #f0f0f0;
   margin: 10px 0;
 }
 
@@ -43,19 +42,18 @@ body {
   display: inline-block;
   margin-top: 20px;
   text-decoration: none;
-  color: #1a1a1a; /* Темный текст */
-  background-color: #ffcc00; /* Цвет фона кнопки */
+  color: #1a1a1a;
+  background-color: #ffcc00;
   padding: 10px 15px;
   border-radius: 5px;
   transition: background-color 0.3s, color 0.3s;
 }
 
 .back-to-list:hover {
-  background-color: #e6b800; /* Цвет при наведении */
-  color: #ffffff; /* Светлый текст при наведении */
+  background-color: #e6b800;
+  color: #ffffff;
 }
 
-/* Центрирование контейнера с изображением */
 .movie-location {
   text-align: center;
 }
@@ -64,72 +62,90 @@ body {
   margin-top: 10px;
 }
 
-/* Мобильная адаптация */
-@media (max-width: 768px) {
-  .movie-detail {
-    padding: 15px;
-  }
-
-  .movie-info h1 {
-    font-size: 22px;
-  }
-
-  .back-to-list {
-    padding: 8px 12px;
-    font-size: 14px;
-  }
+.coordinates {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #9fcf0e;
+  text-shadow: 1px 1px 2px #000;
 }
 
-/* Центрирование контейнера формы на странице */
+.coordinate {
+  padding: 8px 15px;
+  background-color: #444;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.map-links {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.map-link {
+  display: inline-block;
+  background-color: #ffcc00;
+  color: #1a1a1a;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.map-link:hover {
+  background-color: #e6b800;
+  color: #ffffff;
+}
+
 .center-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 40vh; /* Высота экрана для центрирования */
-  background-color: #333; /* Темный фон для всей страницы */
-  margin: 0 25%;; /* Убираем отступы */
+  min-height: 40vh;
+  background-color: #333;
+  margin: 0 25%;
 }
 
-/* Стили для формы */
 #city-selection-form {
   padding: 20px;
-  background-color: #444; /* Тёмный фон формы */
+  background-color: #444;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
-  align-items: center;  /* Центрируем все элементы формы по горизонтали */
+  align-items: center;
   gap: 15px;
   max-width: 400px;
-  width: 100%; /* Форму можно растягивать до максимальной ширины */
-  color: #fff; /* Белый текст для формы */
-  text-align: center;  /* Центрируем текст в форме */
+  width: 100%;
+  color: #fff;
+  text-align: center;
 }
 
-/* Стили для полей формы */
 #city-selection-form select,
 #city-selection-form button {
   padding: 10px;
   font-size: 16px;
   border-radius: 5px;
   border: 1px solid #666;
-  width: 100%; /* Чтобы поля растягивались на всю ширину формы */
-  max-width: 350px; /* Ограничение максимальной ширины */
+  width: 100%;
+  max-width: 350px;
   box-sizing: border-box;
 }
 
-/* Стили для кнопки */
 #city-selection-form button {
-  background-color: #9fcf0e; /* Зеленая кнопка */
+  background-color: #9fcf0e;
   color: #333;
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
-/* Стили для кнопки при наведении */
 #city-selection-form button:hover {
-  background-color: #7a9e0b; /* Цвет при наведении */
+  background-color: #7a9e0b;
 }
-
-

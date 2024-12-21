@@ -6,7 +6,5 @@ from config import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('films.urls')),  # здесь подключается urls для приложения films(пути писать там !!!!)
+    path('', include('films.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-# !!! здесь писать listview НЕЛЬЗЯ , перейди в films/urls.py!!!

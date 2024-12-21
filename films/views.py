@@ -7,9 +7,6 @@ from .models import *
 from films.services.aviasales import get_tickets, get_iata_code
 
 
-# def welcome(request):
-#     return HttpResponse("Welcome to the hell")
-
 class MovieList(ListView):
     model = Movie
     template_name = 'films/movies_list.html'
@@ -17,10 +14,28 @@ class MovieList(ListView):
     paginate_by = 10
 
 
+class AboutView(TemplateView):
+    template_name = "films/about.html"
+
+
 class MovieDetailView(DetailView):
     model = Movie
-    template_name = 'films/movie_detail.html'  # Указываем путь к шаблону
-    context_object_name = 'movie'  # Название переменной для объекта в шаблоне
+    template_name = 'films/movie_detail.html'
+    context_object_name = 'movie'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        # Получаем локацию фильма
+        location = self.object.location
+        if location:
+            context['latitude'] = location.latitude
+            context['longitude'] = location.longitude
+        else:
+            context['latitude'] = None
+            context['longitude'] = None
+
+        return context
 
 
 class TicketsListView(TemplateView):
@@ -76,3 +91,4 @@ class TicketsListView(TemplateView):
         })
 
         return context
+

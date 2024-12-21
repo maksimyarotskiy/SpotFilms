@@ -1,12 +1,11 @@
-{% extends 'films/base.html' %}
-{% load static %}
+  {% extends 'films/base.html' %}
+  {% load static %}
 
+  {% block title %}Детальная информация{% endblock %}
 
-{% block title %}Детальная информация{% endblock %}
-
-{% block extra_styles %}
-<link rel="stylesheet" type="text/css" href="{% static 'films/css/movie_detail.css' %}">
-{% endblock %}
+  {% block extra_styles %}
+  <link rel="stylesheet" type="text/css" href="{% static 'films/css/movie_detail.css' %}">
+  {% endblock %}
 
   <body>
     {% block content %}
@@ -33,7 +32,7 @@
         <p><strong>Год выпуска:</strong> {{ movie.release_year }}</p>
         <p><strong>Описание:</strong> {{ movie.description }}</p>
 
-        <!-- Локация фильма, если есть -->
+        <!-- Локация фильма -->
         {% if movie.location and movie.location.image %}
         <div class="movie-location">
           <img
@@ -47,43 +46,63 @@
         <p>Местоположение: Не указано</p>
         {% endif %}
 
-<div class="center-container">
-  <form id="city-selection-form" class="flight-form" method="get" action="{% url 'tickets-list' %}">
-    <label for="origin">Выберите город вылета:</label>
-    <select id="origin" name="origin">
-        <option value="Москва">Москва</option>
-        <option value="Санкт-Петербург">Санкт-Петербург</option>
-        <option value="Екатеринбург">Екатеринбург</option>
-        <option value="Новосибирск">Новосибирск</option>
-        <option value="Казань">Казань</option>
-        <option value="Краснодар">Краснодар</option>
-        <option value="Владивосток">Владивосток</option>
-        <option value="Уфа">Уфа</option>
-        <option value="Калининград">Калининград</option>
-        <option value="Самара">Самара</option>
-        <option value="Ростов-на-Дону">Ростов-на-Дону</option>
-        <option value="Воронеж">Воронеж</option>
-    </select>
+        <!-- Координаты -->
+        {% if latitude and longitude %}
+        <div class="coordinates">
+          <div class="coordinate">
+            Широта: {{ latitude }}
+          </div>
+          <div class="coordinate">
+            Долгота: {{ longitude }}
+          </div>
+        </div>
 
-    <label for="destination">Город назначения:</label>
-    <!-- Скрытое поле для города назначения -->
-    <input type="hidden" name="destination" value="{{ movie.location.city }}">
+        <!-- Ссылки на карты -->
+        <div class="map-links">
+          <a
+            href="https://yandex.ru/maps/?ll={{ longitude }},{{ latitude }}&z=13"
+            target="_blank"
+            class="map-link">
+            Открыть на Яндекс.Картах
+          </a>
+          <a
+            href="https://www.google.com/maps?q={{ latitude }},{{ longitude }}"
+            target="_blank"
+            class="map-link">
+            Открыть на Google Maps
+          </a>
+        </div>
+        {% endif %}
 
-    <!-- Отображение города назначения -->
-    <h2>{{ movie.location.city }}</h2>
+        <!-- Форма для выбора билетов -->
+        <div class="center-container">
+          <form id="city-selection-form" class="flight-form" method="get" action="{% url 'tickets-list' %}">
+            <label for="origin">Выберите город вылета:</label>
+            <select id="origin" name="origin">
+              <option value="Москва">Москва</option>
+              <option value="Санкт-Петербург">Санкт-Петербург</option>
+              <option value="Екатеринбург">Екатеринбург</option>
+              <option value="Новосибирск">Новосибирск</option>
+              <option value="Казань">Казань</option>
+              <option value="Краснодар">Краснодар</option>
+              <option value="Владивосток">Владивосток</option>
+              <option value="Уфа">Уфа</option>
+              <option value="Калининград">Калининград</option>
+              <option value="Самара">Самара</option>
+              <option value="Ростов-на-Дону">Ростов-на-Дону</option>
+              <option value="Воронеж">Воронеж</option>
+            </select>
 
-    <button type="submit">Найти билеты</button>
-  </form>
-</div>
+            <label for="destination">Город назначения:</label>
+            <input type="hidden" name="destination" value="{{ movie.location.city }}">
 
+            <h2>{{ movie.location.city }}</h2>
+            <button type="submit">Найти билеты</button>
+          </form>
+        </div>
 
-
-
-        <a href="{% url 'movie-list' %}" class="back-to-list"
-          >Вернуться к списку фильмов</a
-        >
+        <a href="{% url 'movie-list' %}" class="back-to-list">Вернуться к списку фильмов</a>
       </div>
     </section>
     {% endblock %}
   </body>
-</html>

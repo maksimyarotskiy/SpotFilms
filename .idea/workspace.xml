@@ -5,19 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf1aa814-ff1d-4b83-8248-886ff4ba527d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/films/static/films/images/facebook.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/films/static/films/images/favicon-16x16.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/films/static/films/images/favicon-32x32.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/films/static/films/images/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/films/static/films/images/instagram.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/films/static/films/images/mail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/films/static/films/images/telegram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/films/templates/films/about.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/films/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/films/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/films/static/films/css/movie_detail.css" beforeDir="false" afterPath="$PROJECT_DIR$/films/static/films/css/movie_detail.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/films/templates/films/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/films/templates/films/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/films/templates/films/movie_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/films/templates/films/movie_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/films/templates/films/movies_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/films/templates/films/movies_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/films/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/films/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/films/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/films/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,14 +51,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MTThemeSelectorConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "dev",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.General"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/films/static/films/images" />

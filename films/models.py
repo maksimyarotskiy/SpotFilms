@@ -4,7 +4,9 @@ from django.db import models
 class Location(models.Model):
     country = models.CharField(max_length=100)
     city = models.CharField(max_length=100, blank=True, null=True)
-    image = models.ImageField(upload_to='locations/', blank=True, null=True)
+    latitude = models.FloatField(blank=True, null=True)  # Широта
+    longitude = models.FloatField(blank=True, null=True)  # Долгота
+    image = models.ImageField(upload_to='locations/', blank=True, null=True)  # Изображение
 
     def __str__(self):
         return f"{self.city}, {self.country}" if self.city else self.country
@@ -32,4 +34,3 @@ class Ticket(models.Model):
 
     def __str__(self):
         return f"Ticket to {self.destination} from {self.origin} - {self.price}$"
-
