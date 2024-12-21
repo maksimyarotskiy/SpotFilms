@@ -1,0 +1,151 @@
+.movie-detail {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background-color: #333;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+}
+
+.movie-info h1 {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.movie-poster,
+.location-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 15px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3);
+}
+
+.movie-info p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #f0f0f0;
+  margin: 10px 0;
+}
+
+.back-to-list {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+  color: #1a1a1a;
+  background-color: #ffcc00;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.back-to-list:hover {
+  background-color: #e6b800;
+  color: #ffffff;
+}
+
+.movie-location {
+  text-align: center;
+}
+
+.movie-location img.location-image {
+  margin-top: 10px;
+}
+
+.coordinates {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #9fcf0e;
+  text-shadow: 1px 1px 2px #000;
+}
+
+.coordinate {
+  padding: 8px 15px;
+  background-color: #444;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.map-links {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.map-link {
+  display: inline-block;
+  background-color: #ffcc00;
+  color: #1a1a1a;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.map-link:hover {
+  background-color: #e6b800;
+  color: #ffffff;
+}
+
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 40vh;
+  background-color: #333;
+  margin: 0 25%;
+}
+
+#city-selection-form {
+  padding: 20px;
+  background-color: #444;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  max-width: 400px;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+}
+
+#city-selection-form select,
+#city-selection-form button {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #666;
+  width: 100%;
+  max-width: 350px;
+  box-sizing: border-box;
+}
+
+#city-selection-form button {
+  background-color: #9fcf0e;
+  color: #333;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#city-selection-form button:hover {
+  background-color: #7a9e0b;
+}

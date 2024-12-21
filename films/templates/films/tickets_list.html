@@ -1,0 +1,36 @@
+{% extends "films/base.html" %}
+{% load static %}
+
+{% block title %}Билеты{% endblock %}
+
+{% block extra_styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'films/css/tickets.css' %}">
+{% endblock %}
+
+{% block content %}
+<h2>Билеты из "{{ origin_name }}" в "{{ destination_name }}"</h2>
+
+{% if tickets %}
+<div class="tickets">
+    {% for ticket in tickets %}
+    <div class="ticket">
+        <p><strong>Цена:</strong> {{ ticket.price }} ₽</p>
+        <p><strong>Пересадки:</strong> {{ ticket.transfers }}</p>
+        <p><strong>Номер рейса:</strong> {{ ticket.flight_number }}</p>
+        <p><strong>Длительность:</strong> {{ ticket.duration_to }} минут</p>
+        <p><strong>Дата вылета:</strong> {{ ticket.departure_at }}</p>
+        <p>
+            <strong>
+                <a href="https://www.aviasales.com{{ ticket.link }}" target="_blank" class="buy-button">
+                    Купить билет
+                </a>
+            </strong>
+        </p>
+
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<p>Билеты не найдены или произошла ошибка при получении данных.</p>
+{% endif %}
+{% endblock %}

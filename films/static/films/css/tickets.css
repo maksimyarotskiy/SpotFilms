@@ -1,0 +1,68 @@
+/* Общий контейнер для всех билетов */
+.tickets {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin: 20px 0;
+  padding: 0;
+}
+
+/* Карточка одного билета */
+.ticket {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  background-color: #333;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.ticket:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Информация о билете */
+.ticket p {
+  margin: 10px 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #B2FF59;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Кнопка покупки */
+.buy-button {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid #DAF7A6;
+  border-radius: 5px;
+  background-color: #4CAF50; /* Основной цвет кнопки */
+  color: #fff; /* Цвет текста */
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+
+/* Наведение на кнопку */
+.buy-button:hover {
+  background-color: #45a049; /* Темный зеленый при наведении */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+/* Анимация клика */
+.buy-button:active {
+  background-color: #3e8e41; /* Еще темнее при клике */
+  transform: translateY(1px);
+}
+
+/* Адаптация под мобильные устройства */
+@media (max-width: 768px) {
+  .tickets {
+    grid-template-columns: 1fr; /* Одна колонка для узких экранов */
+  }
+}

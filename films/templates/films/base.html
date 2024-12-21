@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}SpotFilms{% endblock %}</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'films/css/style.css' %}"
+    />
+    <link rel="icon" type="image/x-icon" href="{% static 'films/images/favicon.ico' %}">
+    <link rel="icon" type="image/png" href="{% static 'films/images/favicon-32x32.png' %}">
+
+
+      {% block extra_styles %}{% endblock %}
+  </head>
+  <body>
+    <!-- Навигационная панель -->
+    <header class="header">
+      <div class="logo">
+        <a href="{% url 'movie-list' %}">SpotFilms</a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="{% url 'movie-list' %}">Популярные фильмы</a></li>
+          <li><a href="{% url 'about' %}">О нас</a></li>
+          <li><a href="{% url 'about' %}">Контакты</a></li>
+        </ul>
+      </nav>
+      <!-- Форма выбора города вылета -->
+      <form class="flight-form" method="get" action="{% url 'tickets-list' %}">
+        <input
+                type="text"
+                name="origin"
+                placeholder="Город вылета (например, Москва)"
+                value="{{ request.GET.origin|default:'Москва' }}"
+        />
+        <input
+                type="text"
+                name="destination"
+                placeholder="Город назначения (например, Дубай)"
+                value="{{ request.GET.destination|default:'' }}"
+        />
+        <button type="submit">Найти билеты</button>
+      </form>
+
+    </header>
+
+    <!-- Основной контент -->
+    <main class="content">
+      {% block content %}
+      <!-- Контент будет здесь -->
+      {% endblock %}
+    </main>
+
+    <!-- Футер -->
+    <footer class="footer">
+      <section class="socials">
+        <h2>Свяжитесь с нами</h2>
+        <div class="social-icons">
+          <a href="#">
+            <img src="{% static 'films/images/instagram.png' %}" alt="Instagram"/>
+          </a>
+          <a href="#"
+            ><img src="{% static 'films/images/facebook.png' %}" alt="Facebook"
+          /></a>
+          <a href="#"
+            ><img src="{% static 'films/images/telegram.png' %}" alt="Twitter"
+          /></a>
+          <a href="#"
+            ><img src="{% static 'films/images/mail.png' %}" alt="Email"
+          /></a>
+        </div>
+      </section>
+
+      <section class="footer-links">
+        <div>
+          <h3>Компания</h3>
+          <ul>
+            <li><a href="#">О нас</a></li>
+            <li><a href="#">Работа</a></li>
+            <li><a href="#">Инвесторы</a></li>
+            <li><a href="#">Медиацентр</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Политика</h3>
+          <ul>
+            <li><a href="#">Конфиденциальность</a></li>
+            <li><a href="#">Правила пользования</a></li>
+            <li><a href="#">Cookies</a></li>
+            <li><a href="#">Справочный центр</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="copyright">
+        <p>&copy; 2024 SpotFilms. Все права защищены.</p>
+      </section>
+    </footer>
+
+    <!-- Скрипты -->
+    <script src="{% static 'js/scripts.js' %}"></script>
+  </body>
+</html>

@@ -1,0 +1,205 @@
+/* Основные стили для всего сайта */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a; /* Темный фон */
+    color: #f0f0f0; /* Светлый цвет текста */
+}
+
+/* Навигационная панель */
+.header {
+    background: #222; /* Темно-серая панель */
+    color: #f0f0f0; /* Цвет текста */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .logo a {
+    color: #ffcc00; /* Цвет логотипа */
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0; /* Убираем отступы */
+}
+
+.header nav ul li {
+    display: inline;
+    margin-left: 20px;
+}
+
+.header nav ul li a {
+    color: #f0f0f0; /* Цвет ссылок навигации */
+    text-decoration: none; /* Убираем подчеркивание */
+    transition: color 0.3s; /* Плавный переход цвета */
+}
+
+.header nav ul li a:hover {
+    color: #ffcc00; /* Цвет при наведении */
+}
+
+/* Основной контент */
+.content {
+    padding: 20px;
+}
+
+/* Стили для списка фильмов */
+.movies-list {
+    text-align: center; /* Центрируем заголовок секции */
+}
+
+.movies-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Центрируем карточки фильмов */
+    margin: 20px 0;
+}
+
+.movie-card {
+    background: #333; /* Цвет фона карточки */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Затемненная тень */
+    margin: 15px;
+    padding: 20px;
+    max-width: 250px; /* Ограничиваем ширину карточек */
+    text-align: left; /* Выровнено по левому краю */
+    transition: transform 0.2s; /* Плавный эффект увеличения */
+}
+
+.movie-card:hover {
+    transform: scale(1.05); /* Увеличение карточки при наведении */
+}
+
+.movie-card img.movie-poster {
+    width: 100%; /* Заполняем всю ширину карточки */
+    height: auto; /* Автоматическая высота */
+    border-radius: 8px; /* Скругление углов */
+}
+
+/* Стили для изображения местоположения */
+.location-image {
+    width: 100%; /* Заполняем всю ширину карточки */
+    height: auto; /* Автоматическая высота */
+    border-radius: 8px; /* Скругление углов */
+    margin-top: 10px; /* Отступ сверху */
+}
+
+/* Кнопки "Подробнее" */
+.more-info {
+    display: inline-block; /* Делаем кнопку блочным элементом */
+    padding: 10px 15px; /* Отступы для кнопки */
+    margin-top: 10px; /* Отступ сверху */
+    background-color: #ffcc00; /* Цвет фона кнопки */
+    color: #1a1a1a; /* Цвет текста кнопки */
+    text-decoration: none; /* Убираем подчеркивание */
+    border-radius: 5px; /* Скругление углов */
+    transition: background-color 0.3s, color 0.3s; /* Плавные переходы */
+}
+
+.more-info:hover {
+    background-color: #e6b800; /* Цвет фона кнопки при наведении */
+    color: #ffffff; /* Цвет текста кнопки при наведении */
+}
+
+/* Пагинация */
+.pagination {
+    margin: 20px 0;
+    text-align: center; /* Центрируем пагинацию */
+}
+
+.pagination .page-links a {
+    margin: 0 10px;
+    text-decoration: none; /* Убираем подчеркивание */
+    color: #ffcc00; /* Цвет ссылок пагинации */
+}
+
+.pagination .page-links span {
+    margin: 0 10px;
+    color: #f0f0f0; /* Цвет текста пагинации */
+}
+
+/* Футер */
+.footer {
+    background: #222; /* Темный фон футера */
+    color: #f0f0f0; /* Цвет текста футера */
+    padding: 20px;
+    text-align: center; /* Центрируем текст футера */
+}
+
+.footer .socials {
+    margin: 10px 0;
+}
+
+.footer .social-icons img {
+    width: 24px; /* Ширина иконок социальных сетей */
+    height: 24px; /* Высота иконок социальных сетей */
+    margin: 0 10px; /* Отступы между иконками */
+}
+
+/* Стили для ссылок в футере */
+.footer-links {
+    display: flex;
+    justify-content: center; /* Центрируем ссылки */
+    flex-wrap: wrap; /* Позволяем оборачиваться ссылкам */
+    margin: 10px 0;
+    padding: 0; /* Убираем отступы */
+}
+
+.footer-links div {
+    margin: 0 20px; /* Отступы между ссылками */
+}
+
+.footer-links ul {
+    list-style: none; /* Убираем точки из списка */
+    padding: 0; /* Убираем отступы у списка */
+    margin: 0; /* Убираем отступы у списка */
+}
+
+.footer-links a {
+    color: #f0f0f0; /* Цвет ссылок в футере */
+    text-decoration: none; /* Убираем подчеркивание */
+    transition: color 0.3s; /* Плавный переход цвета */
+}
+
+.footer-links a:hover {
+    color: #ffcc00; /* Цвет при наведении */
+}
+
+/* Копирайт */
+.copyright {
+    margin-top: 10px; /* Отступ сверху */
+}
+
+.flight-form {
+  display: flex;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.flight-form input {
+  padding: 5px 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.flight-form button {
+  padding: 5px 15px;
+  font-size: 14px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.flight-form button:hover {
+  background-color: #3b873e;
+}
+
